@@ -8,13 +8,13 @@
 
 //var let const - переменные
 console.log("Hello world");
-
+alert("Hello friends");
 //let agePerson = 20;
 //console.log('agePerson: ', agePerson);
 
-const money = 0;
-const income = 9;
-var addExpenses = 4;
-let deposit = 3;
-let mission = 4;
+let money; 
+let income;
+var addExpenses;
+let deposit;
+let mission;
 
