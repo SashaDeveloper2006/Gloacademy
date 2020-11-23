@@ -6,7 +6,7 @@ console.log(typeof income);
 
 let addExpenses = 'Квартира, метро, еда';
 console.log(addExpenses.lenght);
-console.log(addExpenses.toLocaleLowerCase() .split());
+console.log(addExpenses.toLocaleLowerCase().split());
 
 
 let deposit = 5000;
