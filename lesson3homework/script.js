@@ -1,19 +1,17 @@
 'use strict';
 
 let money = prompt('Ваш месячный доход?');
-money = 150000;
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = confirm('Есть ли у вас депозит в банке?');
 
 let expenses1 = prompt('Введите обязательную статью расходов', 'Оплата жилья');
-let amount1 = prompt('Во сколько это обойдется', '100000руб');
+let amount1 = prompt('Во сколько это обойдется', '100000');
 
 let expenses2 = prompt('Введите обязательную статью расходов', 'Еда');
-let amount2 = prompt('Во сколько это обойдется', '20000руб');
+let amount2 = prompt('Во сколько это обойдется', '20000');
 
-let missionM = 500000;
-let budgetMounth = money - (100000 + 20000);
-let mission = missionM / budgetMounth;
+let budgetMounth = 150000 - (amount1 + amount2);
+let mission = 500000 / budgetMounth;
 let budgetDay = budgetMounth / 30;
 let period = 11;
 let addExpenses1 = 'Квартира, метро, еда';
@@ -26,7 +24,7 @@ console.log(addExpenses1.lenght);
 console.log(addExpenses1.toLocaleLowerCase().split());
 
 
-console.log('Бюджет на месяц:', budgetMounth);
+console.log('Бюджет на месяц:',+budgetMounth);
 console.log('Цель будет достигнута за:',Math.ceil(mission), 'месяцев');
 console.log('Бюджет на день:',Math.floor(budgetDay));
 
