@@ -14,14 +14,13 @@ let budgetMounth = (money - (amount1 + amount2));
 let mission = 500000;
 let budgetDay = budgetMounth / 30;
 let period = 11;
-let massiv = 'Квартира, метро, еда';
 
 console.log(typeof money);
 console.log(typeof addExpenses);
 console.log(typeof deposit);
 console.log('Период равен', period, 'месяцев.', 'Цель заработать', mission, 'руб');
-console.log(massiv.lenght);
-console.log(massiv.toLocaleLowerCase().split());
+console.log(addExpenses.lenght);
+console.log(addExpenses.toLocaleLowerCase().split());
 
 
 console.log('Бюджет на месяц:' + budgetMounth);
