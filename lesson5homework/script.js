@@ -11,8 +11,7 @@ let addExpenses = prompt('Перечислите возможные расход
 let deposit = confirm('Есть ли у вас депозит в банке?');
 
 let expenses1, expenses2;
-let amount1 = +prompt('Во сколько это обойдется', 100000),
-amount2 = +prompt('Во сколько это обойдется', 20000);
+
 
 let mission = 500000;
 let period = 11;
@@ -38,7 +37,6 @@ showTypeOf(addExpenses);
 let getExpensesMonth = function(){
     let sum = 0, amount;
     for (let i = 0; i < 2; i++){
-        sum += +prompt('Во сколько это обойдется');
 
         if (i === 0) {
              expenses1 = prompt('Введите обязательную статью расходов', 'Оплата жилья');
@@ -47,7 +45,7 @@ let getExpensesMonth = function(){
         }
         do {
              amount = prompt('Во сколько это обойдется', 120000); 
-        } while (!isNumber(money));
+        } while (!isNumber(amount));
         sum += +amount;
 
     }
@@ -57,7 +55,7 @@ let getExpensesMonth = function(){
 let expensesAmount = getExpensesMonth();
 
 let getAccumulatedMonth = function(){
-    return (money - (amount1 + amount2));
+    return (money - getExpensesMonth);
 };
 let accumulatedMonth = getAccumulatedMonth();
 
