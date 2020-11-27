@@ -41,12 +41,12 @@ let getExpensesMonth = function(){
         sum += +prompt('Во сколько это обойдется');
 
         if (i === 0) {
-            let expenses1 = prompt('Введите обязательную статью расходов', 'Оплата жилья');
+             expenses1 = prompt('Введите обязательную статью расходов', 'Оплата жилья');
         } else if (i === 1) {
-            let expenses2 = prompt('Введите обязательную статью расходов', 'Еда');
+             expenses2 = prompt('Введите обязательную статью расходов', 'Еда');
         }
         do {
-            let ammount = prompt('Во сколько это обойдется', 120000); 
+             amount = prompt('Во сколько это обойдется', 120000); 
         } while (!isNumber(money));
         sum += +amount;
 
