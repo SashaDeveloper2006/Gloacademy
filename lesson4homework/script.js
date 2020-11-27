@@ -23,7 +23,7 @@ showTypeOf(deposit);
 showTypeOf(addExpenses);
 
 let getExpensesMonth = function(){
-    console.log(amount2 + amount1);
+    return (amount2 + amount1);
 };
 
 let getAccumulatedMonth = function(){
@@ -37,7 +37,7 @@ let getTargetMounthn = function(mission, accumulatedMonth){
     return (mission / accumulatedMonth);
 
 };
-let res = getTargetMounthn(500000, 30000);
+ getTargetMounthn(mission, accumulatedMonth);
 
 
 console.log('Период равен', period, 'месяцев.', 'Цель заработать', mission, 'руб');
@@ -46,7 +46,7 @@ console.log(addExpenses.toLocaleLowerCase().split());
 
 
 console.log('Бюджет на месяц:',+accumulatedMonth);
-console.log('Цель будет достигнута за:',Math.ceil(res), 'месяцев');
+console.log('Цель будет достигнута за:',Math.ceil(getTargetMounthn), 'месяцев');
 console.log('Бюджет на день:',Math.floor(budgetDay));
 
 
