@@ -21,7 +21,7 @@ let score = function(){
         } else if (num < botNum) {
         prompt(Number('Загаданное число больше'));
        } else if (num === null) {
-        prompt(Number('Игра окончена'));
+        prompt(Number('Игра окончено'));
       }
       return result;
     };
