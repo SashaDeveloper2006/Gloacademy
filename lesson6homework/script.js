@@ -15,13 +15,17 @@ let score = function(){
     }
     
         if (num === botNum) {
-        prompt(Number('Поздравляю, Вы угадали'));
+        alert(Number('Поздравляю, Вы угадали'));
+        result();
         } else if (num > botNum) {
         prompt(Number('Загаданное число меньше'));
+        result();
         } else if (num < botNum) {
         prompt(Number('Загаданное число больше'));
+        result();
        } else if (num === null) {
-        prompt(Number('Игра окончено'));
+        alert(Number('Игра окончено'));
+        result();
       }
       return result;
     };
