@@ -14,17 +14,17 @@ let score = function(){
     
         if (+num === botNum) {
         alert('Поздравляю, Вы угадали');
+        } else if (num === null) {
+            alert('Игра окончено');
         } else if (num > botNum) {
         alert('Загаданное число меньше');
         result();
         } else if (num < botNum) {
         alert('Загаданное число больше');
         result();
-       } else if (num === null) {
-        alert('Игра окончено');
-      } else if (isNaN(num) || num.trim() === '') {
-          alert('Введите число');
-          result();
+       }else if (isNaN(num) || num.trim() === '') {
+        alert('Введите число');
+        result();
 
       }
 
