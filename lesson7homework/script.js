@@ -21,7 +21,7 @@ let appData = {
     expensesMonth: 0,
     income: {},
     addIncome: [],
-    expenses: {expenses1, expenses2},
+    expenses: {amount},
     addExpenses: [],
     deposit: false,
     mission: 500000,
@@ -30,18 +30,21 @@ let appData = {
     asking: function(){
         
         let sum = 0, amount;
-        for (let i = 0; i < 2; i++){
-    
+
+         do {
+            amount = prompt('Во сколько это обойдется', 120000); 
+         } while (!isNumber(amount));
+           sum += +amount;
+
+          for (let i = 0; i < 2; i++){
             if (i === 0) {
                  appData.expenses = prompt('Введите обязательную статью расходов', 'Оплата жилья');
+                 amount = +prompt('во сколько эт обойдется ');
             } else if (i === 1) {
                  appData.expenses = prompt('Введите обязательную статью расходов', 'Еда');
+                 amount = +prompt('Во сколько это обойдется');
             }
         }
-        do {
-            amount = prompt('Во сколько это обойдется', 120000); 
-       } while (!isNumber(amount));
-       sum += +amount;
 
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
             appData.addExpenses = addExpenses.toLowerCase().split(',');
@@ -52,7 +55,7 @@ let appData = {
 
     getExpensesMonth: function() {
         for (let key in appData.expensesMonth){
-            console.log(amount);
+            return(appData.expenses + appData.expenses);
         }
         
        
