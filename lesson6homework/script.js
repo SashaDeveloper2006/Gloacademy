@@ -12,7 +12,7 @@ let score = function(){
 
   
     
-        if (Number(num === botNum)) {
+        if (+num === botNum) {
         alert('Поздравляю, Вы угадали');
         result();
         } else if (num > botNum) {
@@ -22,10 +22,10 @@ let score = function(){
         alert('Загаданное число больше');
         result();
        } else if (num === null) {
-        alert(Number('Игра окончено'));
-        result();
+        alert('Игра окончено');
       } else if (isNaN(num) || num.trim() === '') {
-          prompt('Введите число');
+          alert('Введите число');
+          result();
 
       }
 
