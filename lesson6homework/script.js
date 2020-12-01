@@ -14,7 +14,6 @@ let score = function(){
     
         if (+num === botNum) {
         alert('Поздравляю, Вы угадали');
-        result();
         } else if (num > botNum) {
         alert('Загаданное число меньше');
         result();
