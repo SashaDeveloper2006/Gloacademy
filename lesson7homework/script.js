@@ -29,27 +29,19 @@ let appData = {
 
     asking: function(){
         
-        let sum = 0, amount;
 
-       
+       appData.deposit = confirm('Есть ли у вас депозит в банке');
 
           for (let i = 0; i < 2; i++){
-            if (i === 0) {
-                 appData.expenses[prompt('Введите обязательную статью расходов', 'Оплата жилья')] = +amount;
-                 
-            } else if (i === 1) {
-                 appData.expenses[prompt('Введите обязательную статью расходов', 'Еда')] = +amount;
-            }
-            do {
-                amount = prompt('Во сколько это обойдется', 120000); 
-             } while (!isNumber(amount));
-               sum += +amount;
-        }
+         let value;
+         let key = prompt('Введите обязателбную статью расходов', 'квартира');
 
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-            appData.addExpenses = addExpenses.toLowerCase().split(',');
-            appData.deposit = confirm('Есть ли у вас депозит в банке?');
-            return sum;
+         while (!isNumber(value)){
+             value = prompt('Во сколько это обойдется', '120000');
+         }
+
+         this.expenses[key] = +value;
+        }
         
     },
 
@@ -107,11 +99,7 @@ let accumulatedMonth = appData.getBudget();
 appData.getTargetMounthn(appData.mission, accumulatedMonth);
 
 
-console.log('Период равен', appData.period, 'месяцев.', 'Цель заработать', appData.mission, 'руб');
-console.log(appData.addExpenses.lenght);
 
-
-console.log('Бюджет на месяц:',+accumulatedMonth);
 if (appData.getTargetMounthn() > 0) {
     console.log('Цель будет достигнута за:',Math.ceil(appData.getTargetMounthn), 'месяцев');
 } else {
