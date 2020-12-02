@@ -21,7 +21,7 @@ let appData = {
     expensesMonth: 0,
     income: {},
     addIncome: [],
-    expenses: {amount},
+    expenses: {},
     addExpenses: [],
     deposit: false,
     mission: 500000,
@@ -31,19 +31,19 @@ let appData = {
         
         let sum = 0, amount;
 
-         do {
-            amount = prompt('Во сколько это обойдется', 120000); 
-         } while (!isNumber(amount));
-           sum += +amount;
+       
 
           for (let i = 0; i < 2; i++){
             if (i === 0) {
-                 appData.expenses = prompt('Введите обязательную статью расходов', 'Оплата жилья');
-                 amount = +prompt('во сколько эт обойдется ');
+                 appData.expenses[prompt('Введите обязательную статью расходов', 'Оплата жилья')] = +amount;
+                 
             } else if (i === 1) {
-                 appData.expenses = prompt('Введите обязательную статью расходов', 'Еда');
-                 amount = +prompt('Во сколько это обойдется');
+                 appData.expenses[prompt('Введите обязательную статью расходов', 'Еда')] = +amount;
             }
+            do {
+                amount = prompt('Во сколько это обойдется', 120000); 
+             } while (!isNumber(amount));
+               sum += +amount;
         }
 
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
@@ -54,21 +54,21 @@ let appData = {
     },
 
     getExpensesMonth: function() {
-        for (let key in appData.expensesMonth){
-            return(appData.expenses + appData.expenses);
+        for (let key in appData.expenses){
+            appData.expensesMonth += appData.expenses[key];
         }
         
        
       },
 
        getBudget: function(){
-        appData.budgetMonth = (money - appData.getExpensesMonth);
-        appData.budgetDay = accumulatedMonth / 30;
+        appData.budgetMonth = (appData.money - appData.getExpensesMonth);
+        appData.budgetDay = appData.accumulatedMonth / 30;
     },
 
-     getTargetMounthn: function(mission, accumulatedMonth){
+     getTargetMounthn: function(){
 
-        return (appData.mission / accumulatedMonth); 
+        return (appData.mission / appData.accumulatedMonth); 
     
     },
 
