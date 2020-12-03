@@ -24,10 +24,24 @@ let appData = {
     expenses: {},
     addExpenses: [],
     deposit: false,
+    percentDeposit: 0,
+    moneyDeposit: 0,
     mission: 500000,
     period: 11,
 
     asking: function(){
+
+        if(confirm('Есть ли у вас допольнительный источник заработка')){
+            let itemIncome = prompt('Какой у вас допольнительный заработок', 'Таксую');
+            while (!isNaN(itemIncome)){
+                prompt('Какой у вас допольнителбный заработок');
+            }
+            let cashIncome = prompt('Сколько в месяц вы зарабатываете', 10000);
+            while(isNaN(cashIncome)){
+                prompt('Сколько в месяц вы зарабатываете');
+            }
+            appData.income[itemIncome] = cashIncome;
+        }
         
 
        appData.deposit = confirm('Есть ли у вас депозит в банке');
@@ -35,6 +49,9 @@ let appData = {
           for (let i = 0; i < 2; i++){
          let value;
          let key = prompt('Введите обязателбную статью расходов', 'квартира');
+         while (!isNaN(key)){
+             prompt('Введите обязательную статью расходов');
+         }
 
          while (!isNumber(value)){
              value = prompt('Во сколько это обойдется', '120000');
@@ -76,6 +93,23 @@ let appData = {
         }
     },
 
+    getInfoDeposit: function(){
+        if(appData.deposit){
+            appData.percentDeposit = prompt('Какой годовой процент', '10');
+            while (isNaN(appData.percentDeposit)){
+                prompt('Какой годовой процент');
+            }
+            appData.moneyDeposit = prompt('Какая сумма заложенна', 10000);
+            while (isNaN(appData.moneyDeposit)){
+                prompt('Какая сумма заложенна');
+            }
+        }
+    },
+
+    calcSavedMoney: function(){
+        return appData.budgetMonth * appData.period;
+    }
+
     
 
 };
@@ -107,5 +141,10 @@ if (appData.getTargetMounthn() > 0) {
 }
 console.log('Бюджет на день:',Math.floor(appData.budgetDay));
 
+console.log(appData.key.toLowerCase().split(', '));
+
 
 console.log(appData.getStatusIncome());
+
+appData.getInfoDeposit();
+console.log(appData.percentDeposit, appData.moneyDeposit, appData.calcSavedMoney());
