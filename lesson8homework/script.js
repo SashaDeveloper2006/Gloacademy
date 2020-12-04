@@ -32,15 +32,38 @@ let appData = {
     asking: function(){
 
         if(confirm('Есть ли у вас допольнительный источник заработка')){
-            let itemIncome = prompt('Какой у вас допольнительный заработок', 'Таксую');
-            while (!isNaN(itemIncome)){
-                prompt('Какой у вас допольнителбный заработок');
+            if (confirm('Есть ли у вас дополнительный источник заработка?')){
+                let itemIncome;
+                let cashIncome;
+                do {
+                    itemIncome = prompt('Какой у вас дополнительный заработок?', 'таксую');
+                } while (isNumber(itemIncome));
+    
+                
+                do {
+                    cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
+                }while (!isNumber(cashIncome));
+    
+                appData.income[itemIncome] = cashIncome;
             }
-            let cashIncome = prompt('Сколько в месяц вы зарабатываете', 10000);
-            while(isNaN(cashIncome)){
-                prompt('Сколько в месяц вы зарабатываете');
+    
+            appData.deposit = confirm('Есть ли у вас депозит в банке?');
+            for (let i = 0; i < 2; i++) {
+                let value;
+                let key;
+    
+                do {
+                    key = prompt('Введите обязательную статью расходов?', 'Бензин');
+                } while (isNumber(key));
+    
+                
+                 do {
+                     value = prompt('Во сколько это обойдется?', 3000);
+                } while (!isNumber(key));
+    
+                appData.expenses[key] = value;
+                appData.addExpenses.push(key);
             }
-            appData.income[itemIncome] = cashIncome;
         }
         
 
