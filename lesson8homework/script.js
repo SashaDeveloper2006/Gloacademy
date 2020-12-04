@@ -32,7 +32,7 @@ let appData = {
     asking: function(){
 
         if(confirm('Есть ли у вас допольнительный источник заработка')){
-            if (confirm('Есть ли у вас дополнительный источник заработка?')){
+           
                 let itemIncome;
                 let cashIncome;
                 do {
@@ -45,7 +45,7 @@ let appData = {
                 }while (!isNumber(cashIncome));
     
                 appData.income[itemIncome] = cashIncome;
-            }
+            
     
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
             for (let i = 0; i < 2; i++) {
@@ -63,25 +63,11 @@ let appData = {
     
                 appData.expenses[key] = value;
                 appData.addExpenses.push(key);
+                console.log(appData,this.addExpenses.toLowerCase().split(', '));
+
             }
         }
         
-
-       appData.deposit = confirm('Есть ли у вас депозит в банке');
-
-          for (let i = 0; i < 2; i++){
-         let value;
-         let key = prompt('Введите обязателбную статью расходов', 'квартира');
-         while (!isNaN(key)){
-             prompt('Введите обязательную статью расходов');
-         }
-
-         while (!isNumber(value)){
-             value = prompt('Во сколько это обойдется', '120000');
-         }
-
-         this.expenses[key] = +value;
-        }
         
     },
 
@@ -118,14 +104,18 @@ let appData = {
 
     getInfoDeposit: function(){
         if(appData.deposit){
-            do {
+            
                 appData.percentDeposit = prompt('Какой годовой процент', '10');
-             }   while (isNaN(appData.percentDeposit));
+                while (isNaN(appData.percentDeposit)){
+                    prompt('Какой годовой процент');
+                }
                 
             
-            do {
+            
                 appData.moneyDeposit = prompt('Какая сумма заложенна', 10000);
-            }  while (isNaN(appData.moneyDeposit));
+             while (isNaN(appData.moneyDeposit)){
+                 prompt('Какая сумма заложенна');
+             }
         
                
             
@@ -142,12 +132,8 @@ let appData = {
 
 appData.asking();
 appData.getExpensesMonth();
-appData.getBudget();
 appData.getTargetMounthn();
 appData.getStatusIncome();
-for (let key in appData){
-    console.log('Наша программа включает в себя данные:');
-}
 
 
 let expensesAmount = appData.getExpensesMonth();
@@ -167,7 +153,7 @@ if (appData.getTargetMounthn() > 0) {
 }
 console.log('Бюджет на день:',Math.floor(appData.budgetDay));
 
-console.log(appData.key.toLowerCase().split(', '));
+
 
 
 console.log(appData.getStatusIncome());
