@@ -118,14 +118,17 @@ let appData = {
 
     getInfoDeposit: function(){
         if(appData.deposit){
-            appData.percentDeposit = prompt('Какой годовой процент', '10');
-            while (isNaN(appData.percentDeposit)){
-                prompt('Какой годовой процент');
-            }
-            appData.moneyDeposit = prompt('Какая сумма заложенна', 10000);
-            while (isNaN(appData.moneyDeposit)){
-                prompt('Какая сумма заложенна');
-            }
+            do {
+                appData.percentDeposit = prompt('Какой годовой процент', '10');
+             }   while (isNaN(appData.percentDeposit));
+                
+            
+            do {
+                appData.moneyDeposit = prompt('Какая сумма заложенна', 10000);
+            }  while (isNaN(appData.moneyDeposit));
+        
+               
+            
         }
     },
 
