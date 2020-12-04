@@ -35,14 +35,18 @@ let appData = {
            
                 let itemIncome;
                 let cashIncome;
-                do {
+                
                     itemIncome = prompt('Какой у вас дополнительный заработок?', 'таксую');
-                } while (isNumber(itemIncome));
+                    while (!isNumber(itemIncome)){
+                        prompt('Какой у вас допольнительный заработок');
+                    }
     
                 
-                do {
+                
                     cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
-                }while (!isNumber(cashIncome));
+                while (isNumber(cashIncome)){
+                    prompt('Сколько в месяц вы на этом зарабатываете');
+                }
     
                 appData.income[itemIncome] = cashIncome;
             
@@ -52,14 +56,16 @@ let appData = {
                 let value;
                 let key;
     
-                do {
+                
                     key = prompt('Введите обязательную статью расходов?', 'Бензин');
-                } while (isNumber(key));
+                 while (!isNumber(key)){
+                     prompt('Введите обязательную статью расходов');
+                 }
     
                 
                  do {
                      value = prompt('Во сколько это обойдется?', 3000);
-                } while (!isNumber(key));
+                } while (isNumber(key));
     
                 appData.expenses[key] = value;
                 appData.addExpenses.push(key);
@@ -130,7 +136,6 @@ let appData = {
 
 };
 
-appData.asking();
 appData.getExpensesMonth();
 appData.getTargetMounthn();
 appData.getStatusIncome();
