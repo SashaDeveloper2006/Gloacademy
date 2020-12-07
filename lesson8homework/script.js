@@ -52,6 +52,9 @@ let appData = {
                 console.log(appData.addExpenses.toString().toLowerCase().split(', '));
 
             }
+            console.log(appData.addExpenses.toString().substring(1).toUpperCase());
+
+
                 if(confirm('Есть ли у вас допольнительный источник заработка')){
                 let itemIncome;
                 let cashIncome;
@@ -137,4 +140,4 @@ console.log('Бюджет на день:',Math.floor(appData.budgetDay));
 
 appData.getInfoDeposit();
 console.log(appData.percentDeposit, appData.moneyDeposit, appData.calcSavedMoney());
-console.log(appData.addExpenses.toString().appData.addExpenses[0].toUpperCase() + appData.addExpenses.substring(1));
+console.log(appData.addExpenses.toString().appData.addExpenses.substring(1).toUpperCase());
